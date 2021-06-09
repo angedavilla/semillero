@@ -1,0 +1,9 @@
+ 1 SELECT * FROM mascota
+ 2 SELECT * FROM mascota WHERE propietario IS NULL
+ 3 SELECT COUNT(t1.idmascota), t2.descripcion FROM mascota t1, tipo_mascotas t2
+WHERE t1.tipo_mascota=t2.idtipo_mascota GROUP BY t2.descripcion 
+4 SELECT COUNT(*), propietario FROM mascota
+GROUP BY propietario
+HAVING COUNT(propietario) > 1 
+6 SELECT nombre FROM propietario 
+WHERE idpropietario NOT IN(SELECT propietario FROM mascota WHERE propietario= idpropietario)
